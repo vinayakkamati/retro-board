@@ -1,16 +1,18 @@
 package com.retroboard.dto;
 
+import com.retroboard.model.User;
+
 public class CommentDto {
     private Long id;
     private String comment;
     private String commentType;
     private String dateCreated;
-    private String createdBy;
+    private User createdBy;
 
     public CommentDto() {
     }
 
-    public CommentDto(Long id, String comment, String commentType, String dateCreated, String createdBy) {
+    public CommentDto(Long id, String comment, String commentType, String dateCreated, User createdBy) {
         this.id = id;
         this.comment = comment;
         this.commentType = commentType;
@@ -54,11 +56,11 @@ public class CommentDto {
         this.dateCreated = dateCreated;
     }
 
-    public String getCreatedBy() {
+    public User getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(String createdBy) {
+    public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
     }
 

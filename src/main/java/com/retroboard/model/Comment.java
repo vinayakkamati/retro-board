@@ -2,14 +2,37 @@ package com.retroboard.model;
 
 import com.retroboard.enums.CommentType;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
+@Entity
 public class Comment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "comment_id")
     private Long id;
+
+    @Column(name = "comment")
     private String comment;
+
+    @Column(name = "comment_type")
     private CommentType commentType;
+
+    @Column(name = "date_created")
     private LocalDate dateCreated;
-    private String createdBy;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id")
+    private User createdBy;
 
     public Comment() {
     }
@@ -18,7 +41,7 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Comment(Long id, String comment, CommentType commentType, LocalDate dateCreated, String createdBy) {
+    public Comment(Long id, String comment, CommentType commentType, LocalDate dateCreated, User createdBy) {
         this.id = id;
         this.comment = comment;
         this.commentType = commentType;
@@ -58,11 +81,11 @@ public class Comment {
         this.dateCreated = dateCreated;
     }
 
-    public String getCreatedBy() {
+    public User getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(String createdBy) {
+    public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
     }
 
