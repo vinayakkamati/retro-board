@@ -1,4 +1,4 @@
-package com.retroboard.model;
+package com.retroboard.enums.converters;
 
 import com.retroboard.enums.CommentType;
 

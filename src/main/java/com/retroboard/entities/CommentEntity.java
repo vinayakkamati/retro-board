@@ -1,13 +1,22 @@
-package com.retroboard.model;
+package com.retroboard.entities;
 
 import com.retroboard.enums.CommentType;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
 @Table(name ="comment")
-public class Comment {
+public class CommentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,22 +34,22 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "created_by")
-    private User createdBy;
+    private UserEntity createdBy;
 
-    public Comment() {
+    public CommentEntity() {
     }
 
-    public Comment(String comment) {
+    public CommentEntity(String comment) {
         this.comment = comment;
     }
 
-    public Comment( String comment, CommentType commentType, LocalDate dateCreated) {
+    public CommentEntity(String comment, CommentType commentType, LocalDate dateCreated) {
         this.comment = comment;
         this.commentType = commentType;
         this.dateCreated = dateCreated;
     }
 
-    public Comment(Long id, String comment, CommentType commentType, LocalDate dateCreated, User createdBy) {
+    public CommentEntity(Long id, String comment, CommentType commentType, LocalDate dateCreated, UserEntity createdBy) {
         this.id = id;
         this.comment = comment;
         this.commentType = commentType;
@@ -80,11 +89,11 @@ public class Comment {
         this.dateCreated = dateCreated;
     }
 
-    public User getCreatedBy() {
+    public UserEntity getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public void setCreatedBy(UserEntity createdBy) {
         this.createdBy = createdBy;
     }
 

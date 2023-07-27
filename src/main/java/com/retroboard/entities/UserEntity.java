@@ -1,19 +1,18 @@
-package com.retroboard.model;
+package com.retroboard.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User {
+@Table(name ="user")
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,18 +26,18 @@ public class User {
     private String emailId;
 
     @OneToMany(mappedBy = "createdBy")
-    private List<Comment> comments = new ArrayList<>();
+    private List<CommentEntity> commentEntities = new ArrayList<>();
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(String userName, String emailId) {
+    public UserEntity(String userName, String emailId) {
         this.userName = userName;
         this.emailId = emailId;
     }
 
 
-    public User(Long id, String userName, String emailId) {
+    public UserEntity(Long id, String userName, String emailId) {
         this.id = id;
         this.userName = userName;
         this.emailId = emailId;
