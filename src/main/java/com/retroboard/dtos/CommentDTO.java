@@ -1,18 +1,18 @@
-package com.retroboard.dto;
+package com.retroboard.dtos;
 
-import com.retroboard.model.User;
+import com.retroboard.entities.UserEntity;
 
-public class CommentDto {
+public class CommentDTO {
     private Long id;
     private String comment;
     private String commentType;
     private String dateCreated;
-    private User createdBy;
+    private UserEntity createdBy;
 
-    public CommentDto() {
+    public CommentDTO() {
     }
 
-    public CommentDto(Long id, String comment, String commentType, String dateCreated, User createdBy) {
+    public CommentDTO(Long id, String comment, String commentType, String dateCreated, UserEntity createdBy) {
         this.id = id;
         this.comment = comment;
         this.commentType = commentType;
@@ -20,7 +20,7 @@ public class CommentDto {
         this.createdBy = createdBy;
     }
 
-    public CommentDto(String comment) {
+    public CommentDTO(String comment) {
         this.comment = comment;
     }
 
@@ -56,11 +56,11 @@ public class CommentDto {
         this.dateCreated = dateCreated;
     }
 
-    public User getCreatedBy() {
+    public UserEntity getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public void setCreatedBy(UserEntity createdBy) {
         this.createdBy = createdBy;
     }
 
