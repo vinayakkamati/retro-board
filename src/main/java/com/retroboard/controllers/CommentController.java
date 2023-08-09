@@ -2,7 +2,6 @@ package com.retroboard.controllers;
 
 import com.retroboard.dtos.CommentDTO;
 import com.retroboard.services.CommentService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
