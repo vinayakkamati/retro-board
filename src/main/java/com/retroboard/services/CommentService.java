@@ -14,5 +14,5 @@ public interface CommentService {
 
     Optional<CommentEntity> findById(Long id);
 
-    void updateComment(Long id, String commentDescription);
+    void updateComment(CommentDTO commentDTO);
 }

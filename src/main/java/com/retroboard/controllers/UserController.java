@@ -1,5 +1,6 @@
 package com.retroboard.controllers;
 
+import com.retroboard.dtos.UserRequestDTO;
 import com.retroboard.entities.UserEntity;
 import com.retroboard.services.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
 
@@ -19,5 +20,10 @@ public class UserController {
     @PostMapping(value = "/create")
     public void createUser(@RequestBody UserEntity userEntity){
         userService.saveUser(userEntity);
+    }
+
+    @PostMapping(value = "/login")
+    public UserEntity loginUser(@RequestBody UserRequestDTO userRequestDTO){
+        return userService.validateUser(userRequestDTO);
     }
 }

@@ -28,10 +28,10 @@ public class CommentTypeConverter implements AttributeConverter<CommentType, Int
     public CommentType convertToEntityAttribute(Integer dbData) {
              switch (dbData){
                  case 1:
-                     return CommentType.TO_IMPROVE;
+                     return CommentType.WENT_WELL;
 
                  case 2:
-                     return CommentType.WENT_WELL;
+                     return CommentType.TO_IMPROVE;
 
                  case 3:
                      return CommentType.ACTION_ITEMS;

@@ -8,8 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper
 public interface CommentMapper {
 
-   @Mapping(target = "dateCreated", dateFormat = "dd.MM.yyyy")
+   @Mapping(target = "dateCreated", dateFormat = "yyyy-MM-dd")
    CommentEntity DtoToCommentEntity(CommentDTO commentDto);
-
    CommentDTO CommentToDto(CommentEntity commentEntity);
 }
