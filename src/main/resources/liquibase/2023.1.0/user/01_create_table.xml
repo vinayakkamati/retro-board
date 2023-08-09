@@ -13,6 +13,9 @@
             <column name="email_id" type="varchar(64)">
                 <constraints nullable="true" />
             </column>
+            <column name="password" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

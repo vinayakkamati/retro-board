@@ -25,6 +25,9 @@ public class UserEntity {
     @Column(name = "email_id")
     private String emailId;
 
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(mappedBy = "createdBy")
     private List<CommentEntity> commentEntities = new ArrayList<>();
 
@@ -41,6 +44,14 @@ public class UserEntity {
         this.id = id;
         this.userName = userName;
         this.emailId = emailId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {

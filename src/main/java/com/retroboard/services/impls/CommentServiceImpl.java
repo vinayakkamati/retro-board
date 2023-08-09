@@ -3,7 +3,6 @@ package com.retroboard.services.impls;
 import com.retroboard.dtos.CommentDTO;
 import com.retroboard.entities.CommentEntity;
 import com.retroboard.db.CommentDAO;
-import com.retroboard.enums.CommentType;
 import com.retroboard.mappers.CommentMapper;
 import com.retroboard.services.CommentService;
 import com.retroboard.services.UserService;
@@ -32,8 +31,6 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void saveComment(CommentDTO commentDTO) {
         CommentEntity commentEntity = commentMapper.DtoToCommentEntity(commentDTO);
-        commentEntity.setCommentType(CommentType.WENT_WELL);
-        commentEntity.setCreatedBy(userService.findUser(1L).orElse(null));
         commentEntity.setDateCreated(LocalDate.now());
         commentDAO.save(commentEntity);
     }
@@ -57,10 +54,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void updateComment(Long id, String commentDescription) {
-        CommentEntity commentEntity = this.findById(id).orElse(null);
-        assert commentEntity != null;
-        commentEntity.setComment(commentDescription);
-        commentDAO.save(commentEntity);
+    public void updateComment(CommentDTO commentDTO) {
+        commentDAO.save(commentMapper.DtoToCommentEntity(commentDTO));
     }
 }
