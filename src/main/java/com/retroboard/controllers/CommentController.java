@@ -41,7 +41,7 @@ public class CommentController {
     }
 
     @PutMapping(value = "/edit/{id}")
-    public void editComment(@RequestBody CommentDTO commentDTO){
+    public void editComment(@RequestBody @Valid CommentDTO commentDTO){
         commentService.updateComment(commentDTO);
     }
 

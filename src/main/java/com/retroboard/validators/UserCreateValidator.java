@@ -19,9 +19,8 @@ public class UserCreateValidator {
     private static final Pattern VALID_EMAIL_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9]+[A-Z0-9.-]+\\.[A-Z]{2,}$", Pattern.CASE_INSENSITIVE);
 
-    public void validate(Object target) {
+    public void validate(UserDTO user) {
         Map<String, String> error = new HashMap<>();
-        UserDTO user = (UserDTO) target;
         validateEmail(user.getEmailId(), error);
         validateUserNameSize(user.getUserName(), error);
         validatePasswordSize(user.getPassword(), error);

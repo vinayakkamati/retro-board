@@ -5,7 +5,7 @@ import com.retroboard.entities.CommentEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(uses = {UserMapper.class})
 public interface CommentMapper {
 
    @Mapping(target = "dateCreated", dateFormat = "yyyy-MM-dd")
