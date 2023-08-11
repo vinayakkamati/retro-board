@@ -2,6 +2,7 @@ package com.retroboard.controllers;
 
 import com.retroboard.dtos.CommentDTO;
 import com.retroboard.services.CommentService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/comments")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CommentController {
     private final CommentService commentService;
 
@@ -28,7 +31,7 @@ public class CommentController {
     }
 
     @PostMapping(value = "/create")
-    public void createComment(@RequestBody CommentDTO commentDto){
+    public void createComment(@RequestBody @Valid CommentDTO commentDto){
         commentService.saveComment(commentDto);
     }
 

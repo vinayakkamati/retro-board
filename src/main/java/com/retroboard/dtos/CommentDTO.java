@@ -2,9 +2,15 @@ package com.retroboard.dtos;
 
 import com.retroboard.entities.UserEntity;
 
+import javax.validation.constraints.NotBlank;
+
 public class CommentDTO {
     private Long id;
+
+    @NotBlank(message = "comment is mandatory")
     private String comment;
+
+    @NotBlank(message = "comment type is mandatory")
     private String commentType;
     private String dateCreated;
     private UserEntity createdBy;

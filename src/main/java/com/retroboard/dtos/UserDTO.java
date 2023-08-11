@@ -1,15 +1,22 @@
 package com.retroboard.dtos;
 
-public class UserRequestDTO {
+import javax.validation.constraints.NotBlank;
+
+public class UserDTO {
     private Long id;
+    @NotBlank(message = "User name is mandatory")
     private String userName;
+
+    @NotBlank(message = "Email is mandatory")
     private String emailId;
+
+    @NotBlank(message = "Password is mandatory")
     private String password;
 
-    public UserRequestDTO() {
+    public UserDTO() {
     }
 
-    public UserRequestDTO(Long id, String userName, String emailId, String password) {
+    public UserDTO(Long id, String userName, String emailId, String password) {
         this.id = id;
         this.userName = userName;
         this.emailId = emailId;
