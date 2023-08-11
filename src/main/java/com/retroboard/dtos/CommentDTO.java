@@ -1,7 +1,5 @@
 package com.retroboard.dtos;
 
-import com.retroboard.entities.UserEntity;
-
 import javax.validation.constraints.NotBlank;
 
 public class CommentDTO {
@@ -13,12 +11,12 @@ public class CommentDTO {
     @NotBlank(message = "comment type is mandatory")
     private String commentType;
     private String dateCreated;
-    private UserEntity createdBy;
+    private UserDTO createdBy;
 
     public CommentDTO() {
     }
 
-    public CommentDTO(Long id, String comment, String commentType, String dateCreated, UserEntity createdBy) {
+    public CommentDTO(Long id, String comment, String commentType, String dateCreated, UserDTO createdBy) {
         this.id = id;
         this.comment = comment;
         this.commentType = commentType;
@@ -62,11 +60,11 @@ public class CommentDTO {
         this.dateCreated = dateCreated;
     }
 
-    public UserEntity getCreatedBy() {
+    public UserDTO getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(UserEntity createdBy) {
+    public void setCreatedBy(UserDTO createdBy) {
         this.createdBy = createdBy;
     }
 
