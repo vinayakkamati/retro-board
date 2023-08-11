@@ -14,14 +14,6 @@ public class ErrorMessage {
         this.developerMessage = developerMessage;
     }
 
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
-    }
-
-    public ErrorReason getErrorMessage() {
-        return errorReason;
-    }
-
     public String getDeveloperMessage() {
         return developerMessage;
     }

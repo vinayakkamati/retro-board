@@ -20,31 +20,27 @@ public class UserCreateValidator {
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9]+[A-Z0-9.-]+\\.[A-Z]{2,}$", Pattern.CASE_INSENSITIVE);
 
     public void validate(UserDTO user) {
-        Map<String, String> error = new HashMap<>();
-        validateEmail(user.getEmailId(), error);
-        validateUserNameSize(user.getUserName(), error);
-        validatePasswordSize(user.getPassword(), error);
-        if(!error.isEmpty()){
-            formatErrorUtil.genericRequiredError(error.toString());
-        }
+        validateEmail(user.getEmailId());
+        validateUserNameSize(user.getUserName());
+        validatePasswordSize(user.getPassword());
     }
 
-    private void validateUserNameSize(String userName, Map<String, String> errors) {
+    private void validateUserNameSize(String userName) {
         if(!(userName.length() < UserConstants.MAX_NAME_SIZE && userName.length() > UserConstants.MIN_NAME_SIZE)){
-            errors.put(UserConstants.USER_NAME,UserConstants.USER_NAME_INVALID);
+            formatErrorUtil.genericRequiredError(UserConstants.USER_NAME_INVALID);
         }
     }
 
-    private void validatePasswordSize(String password, Map<String, String> errors) {
+    private void validatePasswordSize(String password) {
         if(password.length() < UserConstants.PASSWORD_SIZE){
-            errors.put(UserConstants.PASSWORD,UserConstants.PASSWORD_INVALID);
+            formatErrorUtil.genericRequiredError(UserConstants.PASSWORD_INVALID);
         }
     }
 
-    public void validateEmail(String email, Map<String, String> errors){
+    public void validateEmail(String email){
         Matcher matcher = VALID_EMAIL_REGEX.matcher(email);
         if(!matcher.find()){
-            errors.put(UserConstants.EMAIL,UserConstants.EMAIL_INVALID);
+            formatErrorUtil.genericRequiredError(UserConstants.PASSWORD_INVALID);
         }
     }
 }

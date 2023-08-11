@@ -1,7 +1,6 @@
 package com.retroboard.services.impls;
 
 import com.retroboard.dtos.CommentDTO;
-import com.retroboard.entities.CommentEntity;
 import com.retroboard.enums.CommentType;
 
 import org.junit.jupiter.api.Test;
