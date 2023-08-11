@@ -1,13 +1,13 @@
 package com.retroboard.services;
 
-import com.retroboard.dtos.UserRequestDTO;
+import com.retroboard.dtos.UserDTO;
 import com.retroboard.entities.UserEntity;
 
 import java.util.Optional;
 
 public interface UserService {
-    void saveUser(UserEntity userEntity);
+    void saveUser(UserDTO user);
     Optional<UserEntity> findUser(Long id);
 
-    UserEntity validateUser(UserRequestDTO userRequestDTO);
+    UserDTO validateUser(UserDTO userDTO);
 }
