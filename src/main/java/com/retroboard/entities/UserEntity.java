@@ -46,6 +46,13 @@ public class UserEntity {
         this.emailId = emailId;
     }
 
+    public UserEntity(Long id, String userName, String emailId, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.emailId = emailId;
+        this.password =password;
+    }
+
     public String getPassword() {
         return password;
     }

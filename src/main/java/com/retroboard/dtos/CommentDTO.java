@@ -24,6 +24,13 @@ public class CommentDTO {
         this.createdBy = createdBy;
     }
 
+    public CommentDTO(Long id, String comment, String commentType, UserDTO createdBy) {
+        this.id = id;
+        this.comment = comment;
+        this.commentType = commentType;
+        this.createdBy = createdBy;
+    }
+
     public CommentDTO(String comment) {
         this.comment = comment;
     }

@@ -40,7 +40,7 @@ public class UserCreateValidator {
     public void validateEmail(String email){
         Matcher matcher = VALID_EMAIL_REGEX.matcher(email);
         if(!matcher.find()){
-            formatErrorUtil.genericRequiredError(UserConstants.PASSWORD_INVALID);
+            formatErrorUtil.genericRequiredError(UserConstants.EMAIL_INVALID);
         }
     }
 }
