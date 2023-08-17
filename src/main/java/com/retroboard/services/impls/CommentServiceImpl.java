@@ -26,7 +26,7 @@ import static com.retroboard.constants.UserConstants.USER_NOT_FOUND;
 
 @Service
 public class CommentServiceImpl implements CommentService {
-    private final CommentDAO commentDAO;
+    CommentDAO commentDAO;
     @Autowired
     UserService userService;
 
