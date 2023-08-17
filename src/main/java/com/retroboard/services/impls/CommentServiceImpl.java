@@ -8,7 +8,6 @@ import com.retroboard.exceptions.ErrorMessage;
 import com.retroboard.exceptions.NotFoundException;
 import com.retroboard.mappers.CommentMapper;
 import com.retroboard.services.CommentService;
-import com.retroboard.services.UserService;
 import com.retroboard.validators.CommentCreateValidator;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,6 @@ import static com.retroboard.constants.UserConstants.USER_NOT_FOUND;
 @Service
 public class CommentServiceImpl implements CommentService {
     CommentDAO commentDAO;
-    @Autowired
-    UserService userService;
 
     @Autowired
     CommentCreateValidator commentCreateValidator;
